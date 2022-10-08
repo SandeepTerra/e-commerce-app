@@ -1,0 +1,30 @@
+﻿@model Basket
+
+<span style="font-size:20px;cursor:pointer" onclick="openNav()">View Basket Contents</span>
+
+<div id="basket">
+    <h4>Basket Contents</h4>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">X</a>
+    @foreach (var product in Model.BasketItems)
+    {
+<p>@product.ProductName</p>
+                <img src="@product.ImgUrl" class="smaller-img" />
+
+                                <div class="input-group mb-3 px-5">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Quantity</span>
+                                    </div>
+                                    <input id="quantity" type="number" value="@product.Quantity" min="1" class="form-control">
+                                </div>
+                                                <p>@product.UnitPrice</p>
+                                                                <hr />}
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("basket").style.width = "450px";
+    }
+
+    function closeNav() {
+        document.getElementById("basket").style.width = "0";
+    }</script>
